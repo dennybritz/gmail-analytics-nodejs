@@ -19,13 +19,12 @@ var server = http.createServer(function(request, response) {
   if (callbackUrl.pathname == '/callback') {
     oauth2Client.getToken(callbackUrl.query.code, function(err, tokens) {
       oauth2Client.setCredentials(tokens);
-      console.log('OAuth2 authentication was successful.');
       // Also set the as the default authentication method
       google.options({ auth: oauth2Client });
       // Start getting messages
       getMessages(null, messageIDStream);
     })
-    response.end('OK');
+    response.end('Authentication successful. You can now return to the application.');
   }
 }).listen(PORT);
 
