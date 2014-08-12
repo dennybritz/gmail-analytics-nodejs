@@ -1,9 +1,10 @@
-var gmail = google.gmail('v1')
 var google = require('googleapis')
 var http = require('http')
 var through = require('through')
 var url = require('url')
 var util = require('util')
+
+var gmail = google.gmail('v1')
 var OAuth2 = google.auth.OAuth2
 
 // We assume the Gmail API client id, client secret and redirect uri are set using environment variables
@@ -54,13 +55,13 @@ function getMessages(pageToken, writeStream){
 // Requests a single message
 function getMessage(messageId, callback){
   gmail.users.messages.get({ userId: 'me', id: messageId }, function(err, response){
-    callback(response.snippet)
+    callback(response)
   });
 }
 
 // Print the preview snippet of each message
 messageStream.on('data', function(messageId){
-  getMessage(messageId, function(snippet){
-    console.log(snippet);
+  getMessage(messageId, function(message){
+    console.log(message.snippet);
   })
 })
