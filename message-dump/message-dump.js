@@ -62,6 +62,6 @@ function getMessage(messageId, callback){
 // Print the preview snippet of each message
 messageStream.on('data', function(messageId){
   getMessage(messageId, function(message){
-    console.log(message.snippet);
+    console.log(JSON.stringify(message));
   })
 })
