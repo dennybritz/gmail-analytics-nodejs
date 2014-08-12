@@ -1,0 +1,25 @@
+{
+  "name": "gmail-analytics",
+  "version": "0.0.1",
+  "description": "scripts to perform analytics on your gmail account",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dennybritz/gmail-analytics-nodejs.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "gmail",
+    "gmail-api"
+  ],
+  "author": "Denny Britz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dennybritz/gmail-analytics-nodejs/issues"
+  },
+  "homepage": "https://github.com/dennybritz/gmail-analytics-nodejs"
+}
