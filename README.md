@@ -6,7 +6,7 @@ All features listed below correspond to directories in the repository.
 
 #### message-dump
 
-The *message-dump* application reads all messages that are NOT spam or trash from your gmail account, converts them into JSON objects, and exposed the data as a HTTP stream. The data is streamed because the Gmail API is limited to 5 "GET message" API requests per second. Thus, getting a full data dump of your gmail account may take a while. You can limit the data to a certain time period using command line arguments.
+The *message-dump* application reads all messages that are NOT spam or trash from your gmail account, converts them into JSON objects, and exposed the data as a stream. The data is streamed because the Gmail API is limited to 5 "GET message" API requests per second. Thus, getting a full data dump of your gmail account may take a while. You can limit the data to a certain time period using arguments. `message-dumper` is a node.js module that abstrcts the authentication and API calls. The `message-dump-console` application print each email message to stdout, one JSON object per line.
 
     cd message-dump
     # Usage: message-dump PORT [start-date] [end-date] 

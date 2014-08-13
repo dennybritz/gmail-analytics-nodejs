@@ -33,12 +33,17 @@ var server = http.createServer(function(request, response) {
 var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 var scopes = ['https://www.googleapis.com/auth/gmail.readonly'];
 var authUrl = oauth2Client.generateAuthUrl({scope: scopes});
-require('child_process').spawn('open', [authUrl]);
 
 // Create a streams that will receive all message ids and messages
 var messageIDStream = through();
 var messageStream = through();
-messageIDStream.pipe(messageStream);
+
+// Request the message for each message ID and add it to the message stream
+messageIDStream.on('data', function(messageId){
+  getMessage(messageId, function(err, message){
+    messageStream.write(message);
+  })
+})
 
 // Recursively requests all message IDs and writes each ID to the given result stream
 function getMessages(pageToken, writeStream){
@@ -54,13 +59,13 @@ function getMessages(pageToken, writeStream){
 // Requests a single message
 function getMessage(messageId, callback){
   gmail.users.messages.get({ userId: 'me', id: messageId }, function(err, response){
-    callback(response)
+    callback(err, response)
   });
 }
 
-// Print the preview snippet of each message
-messageStream.on('data', function(messageId){
-  getMessage(messageId, function(message){
-    console.log(JSON.stringify(message));
-  })
-})
+// We export the messageStream as the constructor (with authentication procedure)
+module.exports = function(){
+  require('child_process').spawn('open', [authUrl]);
+  return messageStream
+}
+
