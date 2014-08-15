@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/dennybritz/gmail-analytics-nodejs",
   "dependencies": {
+    "express": "^4.8.4",
     "googleapis": "^1.0.7",
     "through": "^2.3.4"
   }
