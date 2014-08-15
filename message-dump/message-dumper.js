@@ -44,7 +44,10 @@ function getMessages(pageToken, filterQuery, writeStream){
 // Requests a single message
 function getMessage(messageId, callback){
   gmail.users.messages.get({ userId: 'me', id: messageId }, function(err, response){
-    callback(err, response)
+    if (err)
+      console.error(err)
+    else
+      callback(err, response)
   });
 }
 
