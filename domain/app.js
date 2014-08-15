@@ -20,6 +20,8 @@ app.get('/dump', function(req, res){
   // Start a message dump with the given filter
   var filterQuery = req.query.filter
   messageStream = require('./../message-dump/message-dumper')(filterQuery)
+
+  res.set('Content-Type', 'text/event-stream');
   // Send each data record to the HTTP reponse
   messageStream.on('data', function(message){
     record = {
@@ -28,10 +30,16 @@ app.get('/dump', function(req, res){
       'date': getHeader(message, 'Date'),
       'subject': getHeader(message, 'Subject')
     };
-    res.write(JSON.stringify(record) + '\n');
+    // We send data in event-stream format
+    // See https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events#Event_stream_format
+    res.write('data: ' + JSON.stringify(record) + '\n\n');
   });
   // Close the HTTP response at the end of the dump
   messageStream.on('end', function(){ res.end(); });
+});
+
+app.get('/', function(req, res){
+  res.end()
 });
 
 app.listen(PORT);
