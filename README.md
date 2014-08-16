@@ -12,3 +12,8 @@ The *message-dump* application reads all messages that are NOT spam or trash fro
     node message-dump-console.js "before:2013/01/01 after:2012/05/05"
 
 The command line argument is optional, and can be any valid gmail query string described in the [documentation](https://support.google.com/mail/answer/7190?hl=en).
+
+
+### bubble-vis
+
+Visualizes the domains you are interacting with via email as a [bubble chart](http://bl.ocks.org/mbostock/4063269). It uses the `message-dump` code to plot the chart in real-time. Still under construction.
