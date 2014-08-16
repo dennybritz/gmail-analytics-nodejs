@@ -4,6 +4,7 @@
 // We don't really need express, but it makes things simpler :)
 var express = require('express');
 var app = express();
+app.use(express.static('public'));
 
 var PORT = process.argv[2]
 
@@ -38,8 +39,5 @@ app.get('/dump', function(req, res){
   messageStream.on('end', function(){ res.end(); });
 });
 
-app.get('/', function(req, res){
-  res.end()
-});
 
 app.listen(PORT);
