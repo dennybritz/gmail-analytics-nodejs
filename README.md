@@ -14,6 +14,9 @@ The *message-dump* application reads all messages that are NOT spam or trash fro
 The command line argument is optional, and can be any valid gmail query string described in the [documentation](https://support.google.com/mail/answer/7190?hl=en).
 
 
-### bubble-vis
+### bubble-vis-domain
 
 Visualizes the domains you are interacting with via email as a [bubble chart](http://bl.ocks.org/mbostock/4063269). It uses the `message-dump` code to plot the chart in real-time. Still under construction.
+
+    cd bubble-vis-domain
+    node app.js 8000
