@@ -26,8 +26,14 @@ var messageStream = through();
 // Request the message for each message ID and add it to the message stream
 messageIDStream.on('data', function(messageId){
   getMessage(messageId, function(err, message){
-    messageStream.write(message);
-  })
+    if (err) {
+      // Probably reached API limit, requeue
+      console.error(err);
+      messageIDStream.write(msg.id, 'utf8');
+    } else {
+      messageStream.write(message);
+    }
+  });
 })
 
 // Recursively requests all message IDs and writes each ID to the given result stream
@@ -44,10 +50,7 @@ function getMessages(pageToken, filterQuery, writeStream){
 // Requests a single message
 function getMessage(messageId, callback){
   gmail.users.messages.get({ userId: 'me', id: messageId }, function(err, response){
-    if (err)
-      console.error(err)
-    else
-      callback(err, response)
+    callback(err, response);
   });
 }
 
