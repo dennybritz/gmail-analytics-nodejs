@@ -18,32 +18,36 @@
         <h1>gmail-dump</h1>
         <p>Dump your gmail account in JSON format</p>
 
-        <p class="view"><a href="https://github.com/dennybritz/gmail-analytics-nodejs">View the Project on GitHub <small>dennybritz/gmail-analytics-nodejs</small></a></p>
+        <p class="view"><a href="https://github.com/dennybritz/gmail-dump-nodejs">View the Project on GitHub <small>dennybritz/gmail-dump-nodejs</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/dennybritz/gmail-analytics-nodejs/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/dennybritz/gmail-analytics-nodejs/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/dennybritz/gmail-analytics-nodejs">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/dennybritz/gmail-dump-nodejs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dennybritz/gmail-dump-nodejs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dennybritz/gmail-dump-nodejs">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h2>
-<a name="dump-your-gmail-account" class="anchor" href="#dump-your-gmail-account"><span class="octicon octicon-link"></span></a>Dump your gmail account</h2>
+<a name="dump-your-gmail-account-in-json-format" class="anchor" href="#dump-your-gmail-account-in-json-format"><span class="octicon octicon-link"></span></a>Dump your gmail account in JSON format</h2>
 
-<p>On June 26, 2014 Google announced a new <a href="https://developers.google.com/gmail/api/">Gmail API</a>. Among other things, the API allows developers to read messages, send mail, and manage labels. This little tool can be used to dump your gmail account, or a subset of specific messages from your gmail account.</p>
+<p>On June 26, 2014 Google announced a new <a href="https://developers.google.com/gmail/api/">Gmail API</a>. Among other things, the API allows developers to read messages, send mail, and manage labels. </p>
 
-<pre><code>git clone URL
+<p>This little tool can be used to dump your gmail account, or a subset of specific messages from your gmail account. The output is in JSON format, one message per line.</p>
+
+<pre lang="shell"><code>git clone https://github.com/dennybritz/gmail-dump-nodejs.git
 cd gmail-dump-nodejs
+npm install
+cd message-dump
 node message-dump-console.js &gt; dump.jsonlines
 </code></pre>
 
 <h3>
-<a name="dump-specific-messages" class="anchor" href="#dump-specific-messages"><span class="octicon octicon-link"></span></a>Dump specific messages</h3>
+<a name="dumping-specific-messages" class="anchor" href="#dumping-specific-messages"><span class="octicon octicon-link"></span></a>Dumping specific messages</h3>
 
-<p>You can specify an optional argument to message-dump-console specifying the Gmail query. The query can be any valid gmail query string described in the <a href="https://support.google.com/mail/answer/7190?hl=en">documentation</a>.</p>
+<p>You can specify an optional query argument to <code>message-dump-console</code>. The query can be any valid gmail query string described in the <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail documentation</a>. For example:</p>
 
-<pre><code>node message-dump-console.js "before:2013/01/01 after:2012/05/05"
+<pre><code>node message-dump-console.js "before:2013/01/01 after:2012/05/05" &gt; dump.jsonlines
 </code></pre>
       </section>
       <footer>
