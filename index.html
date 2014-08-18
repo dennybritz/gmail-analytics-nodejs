@@ -33,7 +33,7 @@
 
 <p>On June 26, 2014 Google announced a new <a href="https://developers.google.com/gmail/api/">Gmail API</a>. Among other things, the API allows developers to read messages, send mail, and manage labels. </p>
 
-<p>This little tool can be used to dump your gmail account, or a subset of specific messages from your gmail account. The output is in JSON format, one message per line.  </p>
+<p>This little tool can be used to dump your gmail account, or a subset of specific messages from your gmail account. The output is in JSON format, one message per line. Note that Gmail has a <a href="https://developers.google.com/gmail/api/v1/reference/quota">limit</a> of 5-10 <code>getMessage</code> API requests per second. That means dumping your full account may take a while.</p>
 
 <p>In order to run this tools you must obtain credentials through the <a href="https://console.developers.google.com/">Google Developer Console</a>:</p>
 
