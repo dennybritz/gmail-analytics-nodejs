@@ -2,7 +2,7 @@ On June 26, 2014 Google announced a new [Gmail API](https://developers.google.co
 
 This repository contains scripts to perform analytics on your own Gmail account. It is written in node.js because I've been wanting to learn node for a while. In order to run the scripts you must obtain credentials through the Google Developer Console. [Refer to the Gmail authentication guide for more details](https://developers.google.com/gmail/api/auth/about-auth).
 
-All features listed below correspond to directories in the repository.
+All features listed below correspond to directories in the repository. 
 
 #### message-dump
 
@@ -12,11 +12,3 @@ The *message-dump* application reads all messages that are NOT spam or trash fro
     node message-dump-console.js "before:2013/01/01 after:2012/05/05"
 
 The command line argument is optional, and can be any valid gmail query string described in the [documentation](https://support.google.com/mail/answer/7190?hl=en).
-
-
-### bubble-vis-domain
-
-Visualizes the domains you are interacting with via email as a [bubble chart](http://bl.ocks.org/mbostock/4063269). It uses the `message-dump` code to plot the chart in real-time. Still under construction.
-
-    cd bubble-vis-domain
-    node app.js 8000
