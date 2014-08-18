@@ -33,12 +33,22 @@
 
 <p>On June 26, 2014 Google announced a new <a href="https://developers.google.com/gmail/api/">Gmail API</a>. Among other things, the API allows developers to read messages, send mail, and manage labels. </p>
 
-<p>This little tool can be used to dump your gmail account, or a subset of specific messages from your gmail account. The output is in JSON format, one message per line.</p>
+<p>This little tool can be used to dump your gmail account, or a subset of specific messages from your gmail account. The output is in JSON format, one message per line.  </p>
 
-<pre lang="shell"><code>git clone https://github.com/dennybritz/gmail-dump-nodejs.git
+<p>In order to run this tools you must obtain credentials through the <a href="https://console.developers.google.com/">Google Developer Console</a>:</p>
+
+<ol>
+<li>Visit the <a href="https://console.developers.google.com/">Google Developer Console</a>
+</li>
+<li>Create a new project and activate the Gmail API in "APIs &amp; Auth"</li>
+<li>In "APIs &amp; Auth" click Credentials -&gt; Create New Client Id -&gt; Installed Application -&gt; Other</li>
+<li>Copy the client id and secret</li>
+</ol><pre lang="shell"><code>git clone https://github.com/dennybritz/gmail-dump-nodejs.git
 cd gmail-dump-nodejs
 npm install
 cd message-dump
+export GOOGLE_CLIENT_ID=&lt;YOUR_CLIENT_ID_FROM_ABOVE&gt;
+export GOOGLE_CLIENT_SECRET=&lt;YOUR_CLIENT_SECRET_FROM_ABOVE&gt;
 node message-dump-console.js &gt; dump.jsonlines
 </code></pre>
 
@@ -49,6 +59,11 @@ node message-dump-console.js &gt; dump.jsonlines
 
 <pre><code>node message-dump-console.js "before:2013/01/01 after:2012/05/05" &gt; dump.jsonlines
 </code></pre>
+
+<h3>
+<a name="problems-feedback" class="anchor" href="#problems-feedback"><span class="octicon octicon-link"></span></a>Problems? Feedback?</h3>
+
+<p>Drop me a note: dennybritz [at] gmail.com</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/dennybritz">dennybritz</a></p>
