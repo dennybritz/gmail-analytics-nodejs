@@ -1,3 +1,3 @@
-Visit [http://dennybritz.github.io/gmail-dump-nodejs/](http://dennybritz.github.io/gmail-dump-nodejs/).
+Visit [http://dennybritz.github.io/gmail-dump-nodejs/](http://dennybritz.github.io/gmail-dump-nodejs/)
 
-MIT license.
+This projected is licensed under the terms of the MIT license.
